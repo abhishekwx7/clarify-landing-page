@@ -1,0 +1,680 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #d1cdc4;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0f302c;
+}
+
+/* =========================
+   Navbar
+========================= */
+
+.navbar-wrapper {
+  width: 100%;
+  padding-top: 6px;
+}
+
+.navbar {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 14px 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  border-radius: 12px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #0f4a44;
+  font-size: 24px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.logo:visited {
+  color: #0f4a44;
+}
+
+.logo-text {
+  color: #0f4a44;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #111;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: #0f4a44;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.signin {
+  text-decoration: none;
+  color: #111;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.signin:hover {
+  color: #0f4a44;
+}
+
+/* =========================
+   Shared Button Style
+========================= */
+
+.btn-primary,
+.hero-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+
+  text-decoration: none;
+  background-color: #173936;
+  color: white;
+
+  padding: 10px 22px;
+  border-radius: 7px;
+
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+
+  box-shadow: 4px 4px 0 #0b211f;
+  transition: all 0.2s ease;
+}
+
+.btn-primary::before,
+.hero-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+
+  width: 40%;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.25);
+  transform: skewX(-20deg);
+}
+
+.btn-primary:hover::before,
+.hero-btn:hover::before {
+  left: 150%;
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover,
+.hero-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #0b211f;
+}
+
+/* =========================
+   Hero Section
+========================= */
+
+.hero {
+  padding-top: 70px;
+  padding-bottom: 28px;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-content h1 {
+  color: #123430;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 72px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.hero-content p {
+  margin-top: 24px;
+  color: #003f39;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.hero-btn {
+  margin-top: 28px;
+}
+
+/* =========================
+   Video Thumbnail
+========================= */
+
+.video-wrapper {
+  max-width: 760px;
+  margin: 48px auto 0;
+}
+
+.video-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: #222;
+  border-radius: 2px;
+}
+
+.video-box img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+
+  background-color: rgba(18, 52, 48, 0.9);
+  color: white;
+
+  font-size: 24px;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.play-btn:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* =========================
+   Teacher Tools Marquee
+========================= */
+
+.partners-section {
+  padding: 24px 0 48px;
+  text-align: center;
+}
+
+.partners-text {
+  color: #003f39;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 26px;
+}
+
+.partners-marquee {
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.partners-marquee::before,
+.partners-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+
+  width: 70px;
+  height: 100%;
+
+  z-index: 2;
+  pointer-events: none;
+}
+
+.partners-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, #d1cdc4, transparent);
+}
+
+.partners-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, #d1cdc4, transparent);
+}
+
+.partners-track {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+  width: max-content;
+
+  animation: scrollPartners 26s linear infinite;
+}
+
+.partners-track span {
+  color: #0f4a44;
+  font-size: 16px;
+  font-weight: 800;
+  white-space: nowrap;
+  opacity: 0.85;
+}
+
+.partners-marquee:hover .partners-track {
+  animation-play-state: paused;
+}
+
+@keyframes scrollPartners {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+/* =========================
+   Meet Klara Section
+========================= */
+
+.meet-section {
+  background-color: #d1cdc4;
+  padding: 34px 0 44px;
+}
+
+.meet-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.meet-container > h2 {
+  color: #003f39;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.meet-container > p {
+  margin-top: 12px;
+  color: #003f39;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Main assistant card */
+
+.assistant-card {
+  max-width: 560px;
+  margin: 34px auto 0;
+  padding: 44px 40px 48px;
+
+  background-color: #fbfbfb;
+  border-radius: 26px;
+
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.assistant-logo {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 42px;
+}
+
+.assistant-card h3 {
+  color: #111;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+/* Input */
+
+.assistant-input {
+  width: 100%;
+  max-width: 420px;
+  height: 48px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 10px 0 20px;
+
+  background-color: #fff;
+  border-radius: 13px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.assistant-input span {
+  width: 1px;
+  height: 24px;
+  background-color: #eee;
+}
+
+.assistant-input button {
+  width: 36px;
+  height: 36px;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: #263d38;
+  color: white;
+
+  font-size: 18px;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.assistant-input button:hover {
+  transform: scale(1.05);
+}
+
+/* Prompt chips */
+
+.prompt-chips {
+  max-width: 430px;
+  margin: 14px auto 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  flex-wrap: wrap;
+}
+
+.prompt-chips button {
+  padding: 7px 11px;
+
+  border: 1px solid #d8d3ca;
+  border-radius: 8px;
+
+  background-color: #fff;
+  color: #333;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.prompt-chips button:hover {
+  border-color: #0f4a44;
+  color: #0f4a44;
+  transform: translateY(-2px);
+}
+
+/* Try note */
+
+.try-note {
+  margin-top: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  color: #006064;
+}
+
+.try-note span {
+  font-size: 18px;
+  line-height: 1;
+  transform: rotate(-18deg);
+}
+
+.try-note p {
+  font-family: "Comic Sans MS", "Bradley Hand", cursive;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Bottom text */
+
+.focus-text {
+  margin-top: 30px;
+}
+
+.focus-text h2 {
+  color: #003f39;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.focus-text p {
+  max-width: 560px;
+  margin: 12px auto 0;
+
+  color: #003f39;
+  font-size: 10px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* =========================
+   Responsive Design
+========================= */
+
+@media (max-width: 1100px) {
+  .navbar {
+    max-width: 90%;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .nav-actions {
+    gap: 18px;
+  }
+
+  .hero-content {
+    max-width: 90%;
+  }
+
+  .hero-content h1 {
+    font-size: 58px;
+  }
+
+  .partners-marquee {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 900px) {
+  .video-wrapper {
+    max-width: 90%;
+    margin-top: 42px;
+  }
+
+  .play-btn {
+    width: 54px;
+    height: 54px;
+    font-size: 20px;
+  }
+
+  .partners-track {
+    gap: 34px;
+  }
+
+  .partners-track span {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    display: none;
+  }
+
+  .signin {
+    display: none;
+  }
+
+  .navbar {
+    padding: 12px 16px;
+  }
+
+  .btn-primary,
+  .hero-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .hero {
+    padding-top: 50px;
+    padding-bottom: 22px;
+  }
+
+  .hero-content {
+    max-width: 90%;
+  }
+
+  .hero-content h1 {
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .hero-content br {
+    display: none;
+  }
+
+  .video-wrapper {
+    margin-top: 36px;
+  }
+
+  .partners-section {
+    padding: 20px 0 40px;
+  }
+
+  .partners-text {
+    font-size: 15px;
+    margin-bottom: 22px;
+  }
+
+  .partners-track {
+    gap: 28px;
+  }
+
+  .partners-track span {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .meet-section {
+    padding: 28px 0 38px;
+  }
+
+  .meet-container {
+    max-width: 92%;
+    padding: 0;
+  }
+
+  .meet-container > h2 {
+    font-size: 28px;
+  }
+
+  .meet-container > p {
+    font-size: 14px;
+  }
+
+  .assistant-card {
+    max-width: 100%;
+    padding: 36px 18px 42px;
+    border-radius: 22px;
+  }
+
+  .assistant-card h3 {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .assistant-input {
+    max-width: 100%;
+    height: 46px;
+  }
+
+  .prompt-chips {
+    max-width: 100%;
+  }
+
+  .prompt-chips button {
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+
+  .try-note p {
+    font-size: 24px;
+  }
+
+  .try-note span {
+    font-size: 34px;
+  }
+
+  .focus-text {
+    margin-top: 38px;
+  }
+
+  .focus-text h2 {
+    font-size: 25px;
+  }
+
+  .focus-text p {
+    font-size: 14px;
+  }
+}
